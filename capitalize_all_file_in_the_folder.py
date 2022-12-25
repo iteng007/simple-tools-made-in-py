@@ -5,15 +5,15 @@ if len(sys.argv)!=2:
     sys.exit(1)
 
 
-dirs = []
+files = []
 
 with os.scandir(sys.argv[1]) as entries:
     for entry in entries:
         if entry.name != sys.argv[0] and entry.is_file():
-            dirs.append(entry.name)
+            files.append(entry.name)
 
 new_files_names = []
-for each in dirs:
+for each in files:
     tmp = each.capitalize()
     os.rename(each,tmp)
 
